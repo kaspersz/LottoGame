@@ -27,7 +27,20 @@ class LottoCheckResultTest {
         //when
         LottoResult lottoResult = lottoCheckResult.getResultOfTheGame(lottoInput.getNumbersFromPlayer(mockScannerIn("1 2 3 4 5 6")), randomNumbers);
         //then
-        assertThat(lottoResult, equalTo(new LottoResult(1)));
+        assertThat(lottoResult.getResult(), equalTo(1));
+
+    }
+
+    @Test
+    void shouldReturnSixIfPlayerGuessedAllNumbers(){
+        //given
+        LottoCheckResult lottoCheckResult = new LottoCheckResult();
+        LottoInput lottoInput = new LottoInput();
+        Set<Integer> randomNumbers = new HashSet<>(Arrays.asList(1,2,3,4,5,6));
+        //when
+        LottoResult lottoResult = lottoCheckResult.getResultOfTheGame(lottoInput.getNumbersFromPlayer(mockScannerIn("1 2 3 4 5 6")), randomNumbers);
+        //then
+        assertThat(lottoResult.getResult(), equalTo(6));
 
     }
     private Scanner mockScannerIn(String data) {

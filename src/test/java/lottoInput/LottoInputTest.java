@@ -1,5 +1,6 @@
 package lottoInput;
 
+import exceptions.NotANumberException;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -32,8 +33,8 @@ class LottoInputTest {
         LottoInput input = new LottoInput();
         int number = 60;
         //when
-        //them
-        assertFalse(input.validateNumber(number));
+        //then
+        assertFalse(input.validateNumber(String.valueOf(number)));
     }
     @Test
     void shouldReturnTrueWhenNumberIsInRange(){
@@ -42,10 +43,14 @@ class LottoInputTest {
         int number = 10;
         //when
         //them
-        assertTrue(input.validateNumber(number));
+        assertTrue(input.validateNumber(String.valueOf(number)));
     }
-
-
+    @Test
+    void shouldThrownNotANumberExceptionIfTheInputWasNotANumber(){
+        LottoInput input = new LottoInput();
+        String in = "z";
+        assertThrows(NotANumberException.class, () -> input.validateNumber(in));
+    }
 
     private Scanner mockScannerIn(String data) {
         InputStream stdin = System.in;

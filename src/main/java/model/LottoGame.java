@@ -10,10 +10,11 @@ import lottoNumbersRandomProvider.LottoProvider;
 import lottoResults.LottoResult;
 
 import java.util.Scanner;
-@Getter
-@Setter
+
+import static lottoMsgs.LottoMessages.initial_msg;
+
 @AllArgsConstructor
-public class LottoGame implements Game{
+public class LottoGame implements Game {
 
     LottoInput lottoInput;
     LottoProvider lottoProvider;
@@ -21,10 +22,11 @@ public class LottoGame implements Game{
 
 
     @Override
-    public LottoResult startGame(){
-        System.out.println("The game is started, please follow below instructions");
+    public LottoResult startGame() {
+        System.out.println(initial_msg);
         Scanner sc = new Scanner(System.in);
-        return lottoCheckResult.getResultOfTheGame(lottoInput.getNumbersFromPlayer(sc), lottoProvider.getGeneratedNumbers());
+        LottoResult lottoResult = lottoCheckResult.getResultOfTheGame(lottoInput.getNumbersFromPlayer(sc), lottoProvider.getGeneratedNumbers());
+        return lottoResult;
     }
 
 }
