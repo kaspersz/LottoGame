@@ -19,8 +19,10 @@ class LottoProviderTest {
         //given
         LottoProvider provider = new LottoProvider();
         //when
+        int size = provider.getGeneratedNumbers().size();
+        System.out.println(size);
         //then
-        assertThat(provider.getGeneratedNumbers().size(), equalTo(6));
+        assertThat(size, is(6));
     }
 
 
