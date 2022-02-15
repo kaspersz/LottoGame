@@ -34,17 +34,5 @@ class LottoProviderTest {
         assertThat(provider.getGeneratedNumbers().size(),not(equalTo(number)));
     }
 
-    @Test
-    void numbersInTheRandomGeneratedNumbersSetShouldBeBetween1and49(){
-        //given
-        LottoProvider provider = new LottoProvider();
-        //when
-        IntSummaryStatistics stats = provider.getGeneratedNumbers().stream().collect(Collectors.summarizingInt(Integer::intValue));
-        int max = stats.getMax();
-        int min = stats.getMin();
-        //then
-        assertThat(min, greaterThan(0));
-        assertThat(max, lessThan(50));
-    }
 
 }
