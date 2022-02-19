@@ -1,7 +1,7 @@
-package lottoMsgs;
+package lotto;
 
 
-public class LottoMessages {
+class LottoMessages {
     public static final String initial_msg = "The game is started, please follow below instructions";
     public static final String out_of_range = "The number should be grater than 0 and less than 50";
     public static final String results = "You have guessed %d numbers";

@@ -1,6 +1,6 @@
-package exceptions;
+package lotto;
 
-public class NotANumberException extends RuntimeException{
+class NotANumberException extends RuntimeException{
 
     @Override
     public String getMessage() {

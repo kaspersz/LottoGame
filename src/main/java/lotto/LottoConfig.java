@@ -1,4 +1,4 @@
-package config;
+package lotto;
 
 public class LottoConfig {
 
